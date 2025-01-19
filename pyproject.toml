@@ -37,11 +37,11 @@ pixi-project = { path = ".", editable = true }
 test = "pytest tests/"
 lint = "ruff check ."
 format = "ruff format ."
-docs = "mkdocs serve"
-np = """python -m src.pixi_project.cli"""
+docs = "cd docs; quarto render"
+mkdocs = "mkdocs serve"
+cli = """python -m src.pixi_project.cli"""
 install-cli = "pip install -e ."
 install-quarto-extensions = "cd docs; quarto add quarto-ext/fontawesome; quarto install extension grantmcdermott/quarto-revealjs-clean"
-render = "cd docs; quarto render"
 
 [tool.pixi.dependencies]
 pytest = ">=8.3.4,<9"
