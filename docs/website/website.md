@@ -6,6 +6,7 @@ css:
   - https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro
   - https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css
   - https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css
+  - https://cdn.jsdelivr.net/npm/bulma-slider@2.0.0/dist/css/bulma-slider.min.css
   - https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
   - ./css/index.css
 resources:
@@ -224,7 +225,8 @@ We can also animate the scene by interpolating the deformation latent codes of t
 
 ::: {.columns .is-vcentered .interpolation-panel}
 ::: {.column .is-3 .has-text-centered}
-![Start Frame](./images/interpolate_start.jpg)
+<img src="./images/interpolate_start.jpg" class="interpolation-image" alt="Interpolate start reference image.">
+<p class="is-bold">Start Frame</p>
 :::
 
 ::: {.column .interpolation-video-column}
@@ -233,7 +235,8 @@ We can also animate the scene by interpolating the deformation latent codes of t
 :::
 
 ::: {.column .is-3 .has-text-centered}
-![End Frame](./images/interpolate_end.jpg)
+<img src="./images/interpolate_end.jpg" class="interpolation-image" alt="Interpolation end reference image.">
+<p class="is-bold">End Frame</p>
 :::
 :::
 
@@ -271,7 +274,7 @@ Check out [Frank Dellart's survey on recent NeRF papers](https://dellaert.github
 ::: {.footer-license}
 This website is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-{{< fa thumbs-up >}}
-
 This means you are free to borrow the [source code](https://github.com/nerfies/nerfies.github.io) of this website, we just ask that you link back to this page in the footer.
+
+{{< fa thumbs-up >}}
 :::

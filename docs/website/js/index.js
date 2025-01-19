@@ -23,9 +23,6 @@ function setInterpolationImage(i) {
 }
 
 $(document).ready(function() {
-    console.log('Document is ready');
-    console.log('bulmaCarousel:', bulmaCarousel);
-
     // Initialize navbar burger menu
     $(".navbar-burger").click(function() {
         $(".navbar-burger").toggleClass("is-active");
