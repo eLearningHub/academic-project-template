@@ -3,8 +3,8 @@ title: "Nerfies: Deformable Neural Radiance Fields"
 format: html
 css:
   - https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro
-  - https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css
+  - https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css
   - https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css
   - https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
   - ./css/index.css
@@ -48,46 +48,54 @@ include-in-header:
 
 ::: {.column .has-text-centered}
 ::: {.publication-links}
-::: {.link-block}
-<a href="https://arxiv.org/pdf/2011.12948" class="external-link button is-normal is-rounded is-dark">
-<span class="icon">
-<i class="fas fa-file-pdf"></i>
+<span class="link-block">
+  <a href="https://arxiv.org/pdf/2011.12948"
+     class="external-link button is-normal is-rounded is-dark">
+    <span class="icon">
+        <i class="fas fa-file-pdf"></i>
+    </span>
+    <span>Paper</span>
+  </a>
 </span>
-<span>Paper</span>
-</a>
-:::
-::: {.link-block}
-<a href="https://arxiv.org/abs/2011.12948" class="external-link button is-normal is-rounded is-dark">
-<span class="icon">
-<i class="ai ai-arxiv"></i>
+<span class="link-block">
+  <a href="https://arxiv.org/abs/2011.12948"
+     class="external-link button is-normal is-rounded is-dark">
+    <span class="icon">
+        <i class="ai ai-arxiv"></i>
+    </span>
+    <span>arXiv</span>
+  </a>
 </span>
-<span>arXiv</span>
-</a>
-:::
-::: {.link-block}
-<a href="https://www.youtube.com/watch?v=MrKrnHhk8IA" class="external-link button is-normal is-rounded is-dark">
-<span class="icon">
-<i class="fab fa-youtube"></i>
+<!-- Video Link. -->
+<span class="link-block">
+  <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+     class="external-link button is-normal is-rounded is-dark">
+    <span class="icon">
+        <i class="fab fa-youtube"></i>
+    </span>
+    <span>Video</span>
+  </a>
 </span>
-<span>Video</span>
-</a>
-:::
-::: {.link-block}
-<a href="https://github.com/google/nerfies" class="external-link button is-normal is-rounded is-dark">
-<span class="icon">
-<i class="fab fa-github"></i>
+<!-- Code Link. -->
+<span class="link-block">
+  <a href="https://github.com/google/nerfies"
+     class="external-link button is-normal is-rounded is-dark">
+    <span class="icon">
+        <i class="fab fa-github"></i>
+    </span>
+    <span>Code</span>
+    </a>
 </span>
-<span>Code</span>
-</a>
-:::
-::: {.link-block}
-<a href="https://github.com/google/nerfies/releases/tag/0.1" class="external-link button is-normal is-rounded is-dark">
-<span class="icon">
-<i class="far fa-images"></i>
+<!-- Dataset Link. -->
+<span class="link-block">
+  <a href="https://github.com/google/nerfies/releases/tag/0.1"
+     class="external-link button is-normal is-rounded is-dark">
+    <span class="icon">
+        <i class="far fa-images"></i>
+    </span>
+    <span>Data</span>
+    </a>
 </span>
-<span>Data</span>
-</a>
-:::
 :::
 :::
 :::
