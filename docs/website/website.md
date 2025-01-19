@@ -5,7 +5,7 @@ css:
   - https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro
   - https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css
-  - https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.0/dist/css/bulma-carousel.min.css
+  - https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css
   - https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
   - ./css/index.css
 resources:
@@ -20,7 +20,10 @@ include-in-header:
         gtag('config', 'G-PYVRSFMDRL');
       </script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.0/dist/js/bulma-carousel.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+      <script>
+        console.log('bulmaCarousel is:', typeof bulmaCarousel); // Should log 'function' or 'object'
+      </script>
       <script src="./js/index.js"></script>
 ---
 
