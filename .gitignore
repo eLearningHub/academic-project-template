@@ -1,0 +1,11 @@
+
+# pixi environments
+.pixi
+*.egg-info
+
+# Quarto
+_output
+
+# Python
+*.pyc
+__pycache__/

@@ -1,0 +1,64 @@
+[project]
+name = "pixi-project"
+version = "0.1.0"
+description = "A template for creating a Python project with Pixi"
+authors = [{name = "eLearning Hub", email = "behzad@mechatronics3d.com"}]
+requires-python = ">= 3.11"
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "python-dotenv>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/eLearningHub/pixi-template"
+Repository = "https://github.com/eLearningHub/pixi-template.git"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.pypi-dependencies]
+pixi-project = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+test = "pytest tests/"
+lint = "ruff check ."
+format = "ruff format ."
+docs = "mkdocs serve"
+np = """python -m src.pixi_project.cli"""
+install-cli = "pip install -e ."
+install-quarto-extension = "cd docs; quarto install extension grantmcdermott/quarto-revealjs-clean"
+render = "cd docs; quarto render"
+
+[tool.pixi.dependencies]
+pytest = ">=8.3.4,<9"
+pytest-cov = ">=6.0.0,<7"
+pytest-mock = ">=3.14.0,<4"
+typer = ">=0.15.1,<0.16"
+typing = ">=3.10.0.0,<4"
+quarto = ">=1.5.57,<2"
+deno = ">=1.41.0,<1.42"
+python-pptx = ">=1.0.2,<2"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-ra -q"
+markers = ["integration: marks tests as integration tests that require real credentials"]
+
+[tool.ruff]
+select = ["E", "F", "I", "N", "W", "B", "UP"]
+line-length = 100
