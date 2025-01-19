@@ -1,9 +1,9 @@
 ---
 title: "Nerfies: Deformable Neural Radiance Fields"
 format: html
+page-layout: full
 css:
   - https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro
-  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css
   - https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css
   - https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css
   - https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
@@ -46,7 +46,7 @@ include-in-header:
 ^1^University of Washington, ^2^Google Research
 :::
 
-::: {.column .has-text-centered}
+::: {.column .has-text-centered .is-full}
 ::: {.publication-links}
 <span class="link-block">
   <a href="https://arxiv.org/pdf/2011.12948"
@@ -102,6 +102,7 @@ include-in-header:
 :::
 :::
 :::
+:::
 
 ::: {.hero .teaser}
 ::: {.container .is-max-desktop}
@@ -116,7 +117,7 @@ include-in-header:
 :::
 :::
 
-::: {.hero .is-light .is-small}
+::: {.section .hero .is-light .is-small}
 ::: {.hero-body}
 ::: {.container}
 ::: {#results-carousel .carousel .results-carousel}
@@ -269,6 +270,8 @@ Check out [Frank Dellart's survey on recent NeRF papers](https://dellaert.github
 
 ::: {.footer-license}
 This website is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+
+{{< fa thumbs-up >}}
 
 This means you are free to borrow the [source code](https://github.com/nerfies/nerfies.github.io) of this website, we just ask that you link back to this page in the footer.
 :::

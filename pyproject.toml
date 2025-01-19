@@ -40,7 +40,7 @@ format = "ruff format ."
 docs = "mkdocs serve"
 np = """python -m src.pixi_project.cli"""
 install-cli = "pip install -e ."
-install-quarto-extension = "cd docs; quarto install extension grantmcdermott/quarto-revealjs-clean"
+install-quarto-extensions = "cd docs; quarto add quarto-ext/fontawesome; quarto install extension grantmcdermott/quarto-revealjs-clean"
 render = "cd docs; quarto render"
 
 [tool.pixi.dependencies]

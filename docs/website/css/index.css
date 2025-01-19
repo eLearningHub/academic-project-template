@@ -8,10 +8,21 @@
   --venue-color: #555;
 }
 
+@media (forced-colors: active) {
+  /* Your high contrast styles here */
+  body {
+    background-color: ButtonFace;
+    color: ButtonText;
+  }
+}
+
 body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+h1.title {
+  text-align: center;
+}
 
 .footer .icon-link {
     font-size: 25px;
