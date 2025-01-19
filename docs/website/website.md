@@ -123,42 +123,42 @@ include-in-header:
 ::: {.container}
 ::: {#results-carousel .carousel .results-carousel}
 ::: {.item .item-steve}
-<video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+<video id="steve" autoplay controls muted loop playsinline height="100%">
     <source src="./videos/steve.mp4" type="video/mp4"></source>
 </video>
 :::
 ::: {.item .item-chair-tp}
-<video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+<video id="chair-tp" autoplay controls muted loop playsinline height="100%">
     <source src="./videos/chair-tp.mp4" type="video/mp4"></source>
 </video>
 :::
 ::: {.item .item-shiba}
-<video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+<video id="shiba" autoplay controls muted loop playsinline height="100%">
     <source src="./videos/shiba.mp4" type="video/mp4"></source>
 </video>
 :::
 ::: {.item .item-fullbody}
-<video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+<video id="fullbody" autoplay controls muted loop playsinline height="100%">
     <source src="./videos/fullbody.mp4" type="video/mp4"></source>
 </video>
 :::
 ::: {.item .item-blueshirt}
-<video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+<video id="blueshirt" autoplay controls muted loop playsinline height="100%">
     <source src="./videos/blueshirt.mp4" type="video/mp4"></source>
 </video>
 :::
 ::: {.item .item-mask}
-<video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+<video id="mask" autoplay controls muted loop playsinline height="100%">
     <source src="./videos/mask.mp4" type="video/mp4"></source>
 </video>
 :::
 ::: {.item .item-coffee}
-<video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+<video id="coffee" autoplay controls muted loop playsinline height="100%">
     <source src="./videos/coffee.mp4" type="video/mp4"></source>
 </video>
 :::
 ::: {.item .item-toby}
-<video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+<video id="toby" autoplay controls muted loop playsinline height="100%">
     <source src="./videos/toby2.mp4" type="video/mp4"></source>
 </video>
 :::
@@ -274,7 +274,9 @@ Check out [Frank Dellart's survey on recent NeRF papers](https://dellaert.github
 ::: {.footer-license}
 This website is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-This means you are free to borrow the [source code](https://github.com/nerfies/nerfies.github.io) of this website, we just ask that you link back to this page in the footer.
+This means you are free to borrow the [source code](https://github.com/eLearningHub/pixi-template) of this website, we just ask that you link back to this page in the footer.
 
-{{< fa thumbs-up >}}
+We thank the authors of [Nerfies](https://nerfies.github.io/) and [eLearning Hub](https://github.com/eLearningHub/pixi-template) that kindly open sourced the template of their websites.
+
+{{< fa fa-github >}}
 :::
