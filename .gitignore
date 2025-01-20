@@ -5,6 +5,7 @@
 
 # Quarto
 _output
+_extensions
 
 # Python
 *.pyc
