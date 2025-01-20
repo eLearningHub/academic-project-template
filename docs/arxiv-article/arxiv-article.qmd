@@ -1,0 +1,247 @@
+---
+title: "Demo arXiv template"
+format:
+  arxiv-pdf:
+    keep-tex: true  
+    linenumbers: false
+    doublespacing: false
+    runninghead: "A Preprint"
+  arxiv-html: default
+author:
+  - name: Michael J Mahoney
+    affiliations:
+      - name: State University of New York College of Environmental Science and Forestry
+        department: Graduate Program in Environmental Science
+        address: 1 Forestry Drive
+        city: Syracuse, NY
+        country: USA
+        postal-code: 13210
+    orcid: 0000-0003-2402-304X
+    email: fake_email@fakeyfake.com
+    url: https://mm218.dev
+  - name: Someone Else
+    affiliations:
+      - name: State University of New York College of Environmental Science and Forestry
+        department: Department of Sustainable Resources Management
+        address: 1 Forestry Drive
+        city: Syracuse, NY
+        country: USA
+        postal-code: 13210
+abstract: |
+  This document is only a demo explaining how to use the template.
+keywords: 
+  - template
+  - demo
+bibliography: bibliography.bib
+csl: ieee.csl
+---
+
+# Introduction {#sec-intro}
+
+This is an example of how to use this template to render journal articles. This template is inspired by the arXiv articles template for rmarkdown, repurposed for the Quarto publishing system.
+
+This quarto extension format supports PDF and HTML outputs. This template is primarily focused on generating acceptable {{< latex >}} outputs from Quarto, but renders an acceptable HTML output using the standard Quarto options.
+
+# Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+# Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{python}
+1 + 1
+```
+
+This format hide chunks by default, but you can set `echo` option to `true` locally in the chunk:
+
+```{python}
+#| echo: false
+#| label: tbl-glm
+#| tbl-cap: "A table."
+
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+import itertools
+
+# Create example data similar to the R 'quine' dataset
+np.random.seed(42)  # for reproducibility
+data = {
+    'Eth': pd.Categorical(['A', 'B'] * 50),
+    'Sex': pd.Categorical(['M', 'F'] * 50),
+    'Age': pd.Categorical(['U15', 'O15'] * 50),
+    'Lrn': pd.Categorical(['SL', 'AL'] * 50),
+    'Days': np.random.poisson(lam=15, size=100)  # Example count data
+}
+df = pd.DataFrame(data)
+
+# Create dummy variables for categorical predictors
+# Explicitly convert to numeric type
+X = pd.get_dummies(df[['Eth', 'Sex', 'Age', 'Lrn']], drop_first=True).astype(float)
+
+# Add interaction terms
+pairs = list(itertools.combinations(X.columns, 2))
+for col1, col2 in pairs:
+    X[f"{col1}:{col2}"] = (X[col1] * X[col2]).astype(float)
+
+# Add constant term
+X = sm.add_constant(X)
+
+# Fit Poisson GLM using statsmodels
+model = sm.GLM(df['Days'], 
+               X,
+               family=sm.families.Poisson())
+results = model.fit()
+
+# Create a table of results
+summary_df = pd.DataFrame({
+    'term': X.columns,
+    'estimate': results.params,
+    'std.error': results.bse,
+    'statistic': results.tvalues,
+    'p.value': results.pvalues
+}).round(4)
+
+# Display nicely formatted table
+print("\nGLM Analysis Results:")
+print(summary_df.to_string(index=False))
+
+# Also create an HTML table for better rendering in some outputs
+html_table = summary_df.style.set_table_attributes('class="table table-striped"')\
+    .set_caption("GLM Analysis Results")\
+    .format(precision=4)\
+    .to_html()
+```
+
+# Markdown Basics
+
+This section of the template is adapted from [Quarto's documentation on Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html).
+
+## Text Formatting
+
++-----------------------------------+-------------------------------+
+| Markdown Syntax                   | Output                        |
++===================================+===============================+
+|     *italics* and **bold**        | *italics* and **bold**        |
++-----------------------------------+-------------------------------+
+|     superscript^2^ / subscript~2~ | superscript^2^ / subscript~2~ |
++-----------------------------------+-------------------------------+
+|     ~~strikethrough~~             | ~~strikethrough~~             |
++-----------------------------------+-------------------------------+
+|     `verbatim code`               | `verbatim code`               |
++-----------------------------------+-------------------------------+
+
+## Headings {#headings}
+
++---------------------+-----------------------------------+
+| Markdown Syntax     | Output                            |
++=====================+===================================+
+|     # Header 1      | # Header 1 {.heading-output}      |
++---------------------+-----------------------------------+
+|     ## Header 2     | ## Header 2 {.heading-output}     |
++---------------------+-----------------------------------+
+|     ### Header 3    | ### Header 3 {.heading-output}    |
++---------------------+-----------------------------------+
+
+## Equations
+
+Use `$` delimiters for inline math and `$$` delimiters for display math. For example:
+
++-------------------------------+-------------------------+
+| Markdown Syntax               | Output                  |
++===============================+=========================+
+|     inline math: $E = mc^{2}$ | inline math: $E=mc^{2}$ |
++-------------------------------+-------------------------+
+|     display math:             | display math:\          |
+|                               | $$E = mc^{2}$$          |
+|     $$E = mc^{2}$$            |                         |
++-------------------------------+-------------------------+
+
+If assigned an ID, display math equations will be automatically numbered:
+
+$$
+\frac{\partial \mathrm C}{ \partial \mathrm t } + \frac{1}{2}\sigma^{2} \mathrm S^{2}
+\frac{\partial^{2} \mathrm C}{\partial \mathrm C^2}
+  + \mathrm r \mathrm S \frac{\partial \mathrm C}{\partial \mathrm S}\ =
+  \mathrm r \mathrm C 
+$$ {#eq-black-scholes}
+
+## Other Blocks
+
++-----------------------------+--------------------------+
+| Markdown Syntax             | Output                   |
++=============================+==========================+
+|     > Blockquote            | > Blockquote             |
++-----------------------------+--------------------------+
+|     | Line Block            | | Line Block             |
+|     |   Spaces and newlines | |    Spaces and newlines |
+|     |   are preserved       | |    are preserved       |
++-----------------------------+--------------------------+
+
+## Cross-references {#sec-crf}
+
+![A sunflower](sunflower.png){#fig-sunflower}
+
++---------------------------------------+---------------------------------+
+| Markdown Format                       | Output                          |
++=======================================+=================================+
+|     @fig-sunflower is pretty.         | @fig-sunflower is pretty.       |
++---------------------------------------+---------------------------------+
+|     @tbl-glm was created from code.   | @tbl-glm was created from code. |
++---------------------------------------+---------------------------------+
+|     @sec-crf is this section.         | @sec-crf is this section.       |
++---------------------------------------+---------------------------------+
+|     @eq-black-scholes is above.       | @eq-black-scholes is above.     |
++---------------------------------------+---------------------------------+
+
+See the [Quarto documentation on cross-references for more](https://quarto.org/docs/authoring/cross-references.html).
+
+## Citation Syntax {#sec-citations}
+
+Quarto uses the standard Pandoc markdown representation for citations. Here are some examples:
+
+
++-------------------------------------------+---------------------------------------------------------------------+
+| Markdown Format                           | Output                                                              |
++===========================================+=====================================================================+
+|     Blah Blah [see @knuth1984, pp. 33-35; | Blah Blah [see @knuth1984, pp. 33-35; also @wickham2015, chap. 1]   |
+|     also @wickham2015, chap. 1]           |                                                                     |
++-------------------------------------------+---------------------------------------------------------------------+
+|     Blah Blah [@knuth1984, pp. 33-35,     | Blah Blah [@knuth1984, pp. 33-35, 38-39 and passim]                 |
+|     38-39 and passim]                     |                                                                     |
++-------------------------------------------+---------------------------------------------------------------------+
+|     Blah Blah [@wickham2015; @knuth1984]. | Blah Blah [@wickham2015; @knuth1984].                               |
++-------------------------------------------+---------------------------------------------------------------------+
+|     Wickham says blah [-@wickham2015]     | Wickham says blah [-@wickham2015]                                   |
++-------------------------------------------+---------------------------------------------------------------------+
+
+You can also write in-text citations, as follows:
+
++-----------------------------------+-------------------------------+
+| Markdown Format                   | Output                        |
++===================================+===============================+
+|     @knuth1984 says blah.         | @knuth1984 says blah.         |
++-----------------------------------+-------------------------------+
+|     @knuth1984 [p. 33] says blah. | @knuth1984 [p. 33] says blah. |
++-----------------------------------+-------------------------------+
+
+See the [Pandoc Citations](https://pandoc.org/MANUAL.html#citations) documentation for additional information on citation syntax.
+
+To provide a custom citation stylesheet, provide a path to a CSL file using the `csl` metadata field in your document, for example:
+
+``` yaml
+---
+title: "My Document"
+bibliography: references.bib
+csl: nature.csl
+---
+```
+
+{{< pagebreak >}}
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

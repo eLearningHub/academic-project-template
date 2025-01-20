@@ -65,6 +65,7 @@ The project uses both MkDocs and Quarto for documentation:
 
 1. Install Quarto extensions:
 ```bash
+sudo apt-get install lmodern
 pixi run install-quarto-extensions
 ```
 

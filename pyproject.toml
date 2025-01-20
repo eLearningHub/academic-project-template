@@ -41,7 +41,13 @@ docs = "cd docs; quarto render"
 mkdocs = "mkdocs serve"
 cli = """python -m src.pixi_project.cli"""
 install-cli = "pip install -e ."
-install-quarto-extensions = "cd docs; quarto add quarto-ext/fontawesome; quarto install extension grantmcdermott/quarto-revealjs-clean"
+install-quarto-extensions = '''
+cd docs;
+quarto add quarto-ext/fontawesome;
+quarto install extension grantmcdermott/quarto-revealjs-clean;
+quarto install extension mikemahoney218/quarto-arxiv;
+quarto install tinytex;
+'''
 
 [tool.pixi.dependencies]
 pytest = ">=8.3.4,<9"
@@ -52,6 +58,11 @@ typing = ">=3.10.0.0,<4"
 quarto = ">=1.5.57,<2"
 deno = ">=1.41.0,<1.42"
 python-pptx = ">=1.0.2,<2"
+jupyter = ">=1.1.1,<2"
+pandas = ">=2.2.3,<3"
+numpy = ">=2.2.1,<3"
+scikit-learn = "*"
+statsmodels = ">=0.14.4,<0.15"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
