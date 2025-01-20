@@ -1,4 +1,4 @@
-# Academic Project Page and Arxiv Article Template
+# Academic Project Page and arXiv Article Template
 
 ![](images/project-page.png)
 ![](images/arxiv-article.png)
@@ -46,7 +46,7 @@ There is also a shorter form:
 pixi r docs
 ```
 
-You can then find the project page and the Arxiv article in the `docs/_output` folder.
+You can then find the project page and the arXiv article in the `docs/_output` folder.
 
 ## Development Tasks
 
@@ -131,6 +131,12 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 4. Run tests and linting
 5. Submit a pull request
 
+## Acknowledgements
+
+We extend our heartfelt gratitude to the authors of [Nerfies](https://nerfies.github.io/) for generously open-sourcing their website template, which inspired this project’s design and functionality.  
+
+We also sincerely thank [Michael J. Mahoney](https://www.mm218.dev/) for creating and sharing the invaluable [Quarto template for arXiv preprints](https://github.com/mikemahoney218/quarto-arxiv).  
+
 ## Contact
 
-eLearning Hub - behzad@mechatronics3d.com
+[Behzad Samadi](https://www.mechatronics3d.com/)
