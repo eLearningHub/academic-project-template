@@ -1,6 +1,7 @@
-# Pixi Project Template
+# Academic Project Page and Arxiv Article Template
 
-A template for creating a Python project with Pixi package manager.
+![](images/project-page.png)
+![](images/arxiv-article.png)
 
 ## Features
 
@@ -9,7 +10,6 @@ A template for creating a Python project with Pixi package manager.
 - Code formatting and linting with Ruff
 - Documentation with MkDocs and Quarto
 - CLI tool integration with Typer
-- PowerPoint automation with python-pptx
 
 ## Requirements
 
@@ -26,9 +26,27 @@ cd pixi-template
 
 2. Install dependencies using Pixi:
 ```bash
+sudo apt-get install lmodern
+curl -fsSL https://pixi.sh/install.sh | bash
 pixi install
 pixi run install-quarto-extensions
 ```
+
+## Documentation
+
+The project uses Quarto for documentation:
+
+```bash
+pixi run docs
+```
+
+There is also a shorter form:
+
+```bash
+pixi r docs
+```
+
+You can then find the project page and the Arxiv article in the `docs/_output` folder.
 
 ## Development Tasks
 
@@ -59,21 +77,6 @@ The project includes several predefined tasks that can be run using `pixi run`:
   pixi run cli
   ```
 
-## Documentation
-
-The project uses both MkDocs and Quarto for documentation:
-
-1. Install Quarto extensions:
-```bash
-sudo apt-get install lmodern
-pixi run install-quarto-extensions
-```
-
-2. Start documentation server:
-```bash
-pixi run docs
-```
-
 ## Testing
 
 Tests are written using pytest. Run the test suite with:
@@ -101,20 +104,6 @@ Check for issues with:
 ```bash
 pixi run lint
 ```
-
-## Dependencies
-
-### Main Dependencies
-- python-dotenv >= 1.0.0
-
-### Development Dependencies
-- pytest >= 8.3.4
-- pytest-cov >= 6.0.0
-- pytest-mock >= 3.14.0
-- typer >= 0.15.1
-- quarto >= 1.5.57
-- deno >= 1.41.0
-- python-pptx >= 1.0.2
 
 ## Project Structure
 
