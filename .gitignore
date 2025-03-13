@@ -10,3 +10,13 @@ _extensions
 # Python
 *.pyc
 __pycache__/
+
+# MacOS
+.DS_Store
+
+
+# PyCharm
+.idea/*
+
+# VSCode
+.vscode/*

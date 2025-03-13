@@ -24,13 +24,25 @@ git clone https://github.com/eLearningHub/pixi-template.git
 cd pixi-template
 ```
 
-2. Install dependencies using Pixi:
+2. Install dependencies using Pixi (If you are using an Apple Silicon MacBook, please refer to the Note.):
 ```bash
 sudo apt-get install lmodern
 curl -fsSL https://pixi.sh/install.sh | bash
 pixi install
 pixi run install-quarto-extensions
 ```
+
+### Note:
+If you're using a MacBook equipped with Apple M-series chips, you might need to include `osx-arm64` in your list of platforms. To do this, please follow the instructions below instead:
+
+```bash
+sudo apt-get install lmodern
+curl -fsSL https://pixi.sh/install.sh | bash
+pixi project platform add osx-arm64
+pixi install
+pixi run install-quarto-extensions
+```
+
 
 ## Documentation
 
@@ -77,6 +89,11 @@ The project includes several predefined tasks that can be run using `pixi run`:
   pixi run cli
   ```
 
+- `start`: Start the project using the `main.py` under `src` folder:
+  ```bash
+  pixi run start
+  ```
+
 ## Testing
 
 Tests are written using pytest. Run the test suite with:
@@ -106,13 +123,15 @@ pixi run lint
 ```
 
 ## Project Structure
-
 ```
 pixi-template/
 ├── src/
-│   └── pixi_project/
-│       └── cli.py
+│   ├── pixi_project/
+│   │    ├── cli.py
+│   │    └── sample_python_code.py
+│   └── main.py
 ├── tests/
+│   └── test_sample_python_code.py
 ├── docs/
 ├── pyproject.toml
 ├── README.md
