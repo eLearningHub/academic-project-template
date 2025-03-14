@@ -1,0 +1,23 @@
+documentation:
+  - docs/**/*
+  - "**/*.md"
+
+tests:
+  - tests/**/*
+  - "**/*_test.py"
+
+source:
+  - src/**/*
+
+ci:
+  - .github/**/*
+
+dependencies:
+  - pyproject.toml
+  - poetry.lock
+
+bug:
+  - any: ['**/*fix*', '**/*bug*']
+
+enhancement:
+  - any: ['**/*feature*', '**/*enhancement*'] 

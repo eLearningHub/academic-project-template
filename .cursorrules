@@ -1,0 +1,66 @@
+# Cursor Rules for Pixi Project
+
+## Project Overview
+This is a Python project template with modern development practices including Poetry for dependency management, Nox for test automation, pre-commit for linting, GitHub Actions for CI/CD, and Sphinx for documentation.
+
+## Important Notes
+- DO NOT edit pyproject.toml directly to add dependencies. Use `pixi add` commands instead.
+- Pixi will automatically update the pyproject.toml file with the appropriate configuration.
+- Example: `pixi add numpy pandas` to add numpy and pandas as dependencies
+- Example: `pixi add --pypi --feature dev pytest black` to add development dependencies
+
+## Helpful Prompts
+
+### Setup Development Environment
+```
+Help me set up the development environment for this project.
+```
+
+### Add New Feature
+```
+I want to add a new feature that [describe feature]. How should I implement this?
+```
+
+### Fix Bug
+```
+I'm encountering this error: [paste error]. How can I fix it?
+```
+
+### Add Tests
+```
+Help me write tests for the [module/function] I just created.
+```
+
+### Documentation
+```
+Help me document the [module/function] I just created.
+```
+
+### CI/CD
+```
+How do I configure the CI/CD pipeline for [specific task]?
+```
+
+### Dependency Management
+```
+I need to add [package] as a dependency. What's the correct way to do this?
+```
+Remember: Use `pixi add [package]` for regular dependencies and `pixi add --pypi --feature dev [package]` for development dependencies. Pixi will automatically update the pyproject.toml file.
+
+### Code Quality
+```
+Help me improve the code quality of [file/module].
+```
+
+### Release Process
+```
+Guide me through the process of creating a new release.
+```
+
+## Project Structure
+- `src/pixi_project/`: Source code
+- `tests/`: Test files
+- `docs/`: Documentation
+- `.github/workflows/`: CI/CD configuration
+- `noxfile.py`: Nox configuration for automation
+- `.pre-commit-config.yaml`: Pre-commit hooks configuration 

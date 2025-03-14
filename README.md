@@ -1,22 +1,57 @@
-# Academic Project Page and arXiv Article Template
+# Pixi Project
+
+[![Tests](https://github.com/eLearningHub/pixi-template/actions/workflows/tests.yml/badge.svg)](https://github.com/eLearningHub/pixi-template/actions/workflows/tests.yml)
+[![Lint](https://github.com/eLearningHub/pixi-template/actions/workflows/lint.yml/badge.svg)](https://github.com/eLearningHub/pixi-template/actions/workflows/lint.yml)
+[![Documentation Status](https://readthedocs.org/projects/pixi-project/badge/?version=latest)](https://pixi-project.readthedocs.io/en/latest/?badge=latest)
+[![PyPI](https://img.shields.io/pypi/v/pixi-project.svg)](https://pypi.org/project/pixi-project/)
+[![Codecov](https://codecov.io/gh/eLearningHub/pixi-template/branch/main/graph/badge.svg)](https://codecov.io/gh/eLearningHub/pixi-template)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A template for creating Python projects with modern development practices.
 
 ![](images/project-page.png)
-![](images/arxiv-article.png)
 
 ## Features
 
-- Modern Python project structure with Pixi
-- Built-in testing with pytest
-- Code formatting and linting with Ruff
-- Documentation with MkDocs and Quarto
-- CLI tool integration with Typer
+- Packaging and dependency management with Poetry
+- Test automation with Nox
+- Linting with pre-commit and Flake8
+- Continuous integration with GitHub Actions
+- Documentation with Sphinx, MyST, and Read the Docs using the furo theme
+- Automated uploads to PyPI and TestPyPI
+- Automated release notes with Release Drafter
+- Automated dependency updates with Dependabot
+- Code formatting with Black and Prettier
+- Import sorting with isort
+- Testing with pytest
+- Code coverage with Coverage.py
+- Coverage reporting with Codecov
+- Command-line interface with Typer
+- Static type-checking with mypy
+- Runtime type-checking with Typeguard
+- Automated Python syntax upgrades with pyupgrade
+- Security audit with Bandit and Safety
+- Check documentation examples with xdoctest
+- Generate API documentation with autodoc and napoleon
+- Generate command-line reference with sphinx-click
+- Manage project labels with GitHub Labeler
 
 ## Requirements
 
 - Python >= 3.11
-- [Pixi](https://prefix.dev/docs/pixi/overview) package manager
+- [Poetry](https://python-poetry.org/) package manager or [Pixi](https://pixi.sh) package manager
 
 ## Installation
+
+### From PyPI
+
+```bash
+pip install pixi-project
+```
+
+### For Development
+
+#### Using Poetry
 
 1. Clone the repository:
 ```bash
@@ -24,85 +59,137 @@ git clone https://github.com/eLearningHub/pixi-template.git
 cd pixi-template
 ```
 
-2. Install dependencies using Pixi:
+2. Install dependencies using Poetry:
 ```bash
-sudo apt-get install lmodern
-curl -fsSL https://pixi.sh/install.sh | bash
-pixi install
-pixi run install-quarto-extensions
+poetry install
 ```
+
+3. Install pre-commit hooks:
+```bash
+poetry run pre-commit install
+```
+
+#### Using Pixi
+
+1. Clone the repository:
+```bash
+git clone https://github.com/eLearningHub/pixi-template.git
+cd pixi-template
+```
+
+2. Install Pixi if you haven't already:
+```bash
+curl -fsSL https://pixi.sh/install.sh | bash
+```
+
+3. Install dependencies using Pixi:
+```bash
+pixi install
+```
+
+4. Install development dependencies:
+```bash
+pixi run install-dev
+```
+
+5. Install pre-commit hooks:
+```bash
+pixi run pre-commit install
+```
+
+> **Important**: When using Pixi, always add dependencies with `pixi add` commands instead of editing pyproject.toml directly. Use `pixi add [package]` for regular dependencies and `pixi add --pypi --feature dev [package]` for development dependencies. Pixi will automatically update the pyproject.toml file with the appropriate configuration. See [pixi_setup.md](pixi_setup.md) for more details.
 
 ## Documentation
 
-The project uses Quarto for documentation:
+The documentation is available at [pixi-project.readthedocs.io](https://pixi-project.readthedocs.io/).
+
+To build the documentation locally:
+
+### Using Quarto
 
 ```bash
+cd docs
 pixi run docs
 ```
 
-There is also a shorter form:
+### Using Sphinx
 
 ```bash
-pixi r docs
+pixi run sdocs
 ```
 
-You can then find the project page and the arXiv article in the `docs/_output` folder.
+The Sphinx documentation will be available in the `docs/_build` directory.
 
 ## Development Tasks
 
-The project includes several predefined tasks that can be run using `pixi run`:
+The project includes several predefined tasks that can be run using Poetry, Nox, or Pixi:
 
-- `test`: Run pytest test suite
+### Using Poetry
+
+- Run tests:
   ```bash
-  pixi run test
+  poetry run pytest
   ```
 
-- `lint`: Check code with Ruff
+- Format code:
   ```bash
-  pixi run lint
+  poetry run black src tests
+  poetry run isort src tests
   ```
 
-- `format`: Format code with Ruff
+- Lint code:
   ```bash
-  pixi run format
+  poetry run flake8 src tests
   ```
 
-- `docs`: Build Quarto documentation
+- Type check:
   ```bash
-  pixi run docs
+  poetry run mypy src tests
   ```
 
-- `cli`: Run CLI tool
-  ```bash
-  pixi run cli
-  ```
+### Using Nox
 
-## Testing
-
-Tests are written using pytest. Run the test suite with:
+Nox provides isolated environments for testing and other tasks:
 
 ```bash
+# Install Nox
+pip install nox
+
+# Run tests
+nox -s tests
+
+# Format code
+nox -s black isort
+
+# Lint code
+nox -s lint
+
+# Type check
+nox -s mypy
+
+# Build documentation
+nox -s docs
+```
+
+### Using Pixi
+
+Pixi provides a simpler interface for common tasks:
+
+```bash
+# Run tests
 pixi run test
-```
 
-Test configuration is specified in `pyproject.toml` under `[tool.pytest.ini_options]`.
-
-## Code Style
-
-This project uses Ruff for code formatting and linting:
-
-- Line length is set to 100 characters
-- Enforces import sorting
-- Checks for common bugs and code smells
-
-Format your code with:
-```bash
+# Format code
 pixi run format
-```
 
-Check for issues with:
-```bash
+# Lint code
 pixi run lint
+
+# Type check
+pixi run mypy
+
+# Build documentation
+pixi run docs
 ```
 
 ## Project Structure
@@ -111,29 +198,41 @@ pixi run lint
 pixi-template/
 ├── src/
 │   └── pixi_project/
+│       ├── __init__.py
 │       └── cli.py
 ├── tests/
+│   ├── __init__.py
+│   └── test_cli.py
 ├── docs/
+│   ├── conf.py
+│   ├── index.md
+│   └── ...
+├── .github/
+│   └── workflows/
+│       ├── tests.yml
+│       ├── lint.yml
+│       └── release.yml
 ├── pyproject.toml
-├── README.md
-└── LICENSE
+├── noxfile.py
+├── .pre-commit-config.yaml
+├── .readthedocs.yaml
+├── CODE_OF_CONDUCT.md
+├── CHANGELOG.md
+├── pixi_setup.md
+└── README.md
 ```
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 
-1. Fork the repository
-2. Create a new branch for your feature
-3. Make your changes
-4. Run tests and linting
-5. Submit a pull request
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Acknowledgements
 
-We extend our heartfelt gratitude to the authors of [Nerfies](https://nerfies.github.io/) for generously open-sourcing their website template, which inspired this project’s design and functionality.  
+We extend our heartfelt gratitude to the authors of [Nerfies](https://nerfies.github.io/) for generously open-sourcing their website template, which inspired this project's design and functionality.  
 
 We also sincerely thank [Michael J. Mahoney](https://www.mm218.dev/) for creating and sharing the invaluable [Quarto template for arXiv preprints](https://github.com/mikemahoney218/quarto-arxiv).  
 
