@@ -13,16 +13,15 @@ A template for creating Python projects with modern development practices.
 
 ## Features
 
-- Packaging and dependency management with Poetry
+- Packaging and dependency management with Pixi
 - Test automation with Nox
-- Linting with pre-commit and Flake8
+- Linting with pre-commit and Ruff
 - Continuous integration with GitHub Actions
 - Documentation with Sphinx, MyST, and Read the Docs using the furo theme
 - Automated uploads to PyPI and TestPyPI
 - Automated release notes with Release Drafter
 - Automated dependency updates with Dependabot
-- Code formatting with Black and Prettier
-- Import sorting with isort
+- Code formatting with Ruff
 - Testing with pytest
 - Code coverage with Coverage.py
 - Coverage reporting with Codecov
@@ -39,7 +38,7 @@ A template for creating Python projects with modern development practices.
 ## Requirements
 
 - Python >= 3.11
-- [Poetry](https://python-poetry.org/) package manager or [Pixi](https://pixi.sh) package manager
+- [Pixi](https://pixi.sh) package manager
 
 ## Installation
 
@@ -50,26 +49,6 @@ pip install pixi-project
 ```
 
 ### For Development
-
-#### Using Poetry
-
-1. Clone the repository:
-```bash
-git clone https://github.com/eLearningHub/pixi-template.git
-cd pixi-template
-```
-
-2. Install dependencies using Poetry:
-```bash
-poetry install
-```
-
-3. Install pre-commit hooks:
-```bash
-poetry run pre-commit install
-```
-
-#### Using Pixi
 
 1. Clone the repository:
 ```bash
@@ -97,6 +76,19 @@ pixi run install-dev
 pixi run pre-commit install
 ```
 
+6. (Optional) Install Quarto extensions if needed:
+```bash
+pixi run install-quarto-extensions
+```
+
+### Note for Apple Silicon Users:
+If you're using a MacBook equipped with Apple M-series chips, you might need to include `osx-arm64` in your list of platforms:
+
+```bash
+pixi project platform add osx-arm64
+pixi install
+```
+
 > **Important**: When using Pixi, always add dependencies with `pixi add` commands instead of editing pyproject.toml directly. Use `pixi add [package]` for regular dependencies and `pixi add --pypi --feature dev [package]` for development dependencies. Pixi will automatically update the pyproject.toml file with the appropriate configuration. See [pixi_setup.md](pixi_setup.md) for more details.
 
 ## Documentation
@@ -108,7 +100,6 @@ To build the documentation locally:
 ### Using Quarto
 
 ```bash
-cd docs
 pixi run docs
 ```
 
@@ -122,34 +113,31 @@ The Sphinx documentation will be available in the `docs/_build` directory.
 
 ## Development Tasks
 
-The project includes several predefined tasks that can be run using Poetry, Nox, or Pixi:
+The project includes several predefined tasks that can be run using Pixi:
 
-### Using Poetry
+```bash
+# Run tests
+pixi run test
 
-- Run tests:
-  ```bash
-  poetry run pytest
-  ```
+# Format code
+pixi run format
 
-- Format code:
-  ```bash
-  poetry run black src tests
-  poetry run isort src tests
-  ```
+# Lint code
+pixi run lint
 
-- Lint code:
-  ```bash
-  poetry run flake8 src tests
-  ```
+# Type check
+pixi run mypy
 
-- Type check:
-  ```bash
-  poetry run mypy src tests
-  ```
+# Build documentation
+pixi run docs
 
-### Using Nox
+# Run the CLI
+pixi run cli
+```
 
-Nox provides isolated environments for testing and other tasks:
+## Using Nox
+
+For additional isolation, you can use Nox:
 
 ```bash
 # Install Nox
@@ -171,29 +159,7 @@ nox -s mypy
 nox -s docs
 ```
 
-### Using Pixi
-
-Pixi provides a simpler interface for common tasks:
-
-```bash
-# Run tests
-pixi run test
-
-# Format code
-pixi run format
-
-# Lint code
-pixi run lint
-
-# Type check
-pixi run mypy
-
-# Build documentation
-pixi run docs
-```
-
 ## Project Structure
-
 ```
 pixi-template/
 ├── src/

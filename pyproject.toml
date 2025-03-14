@@ -15,7 +15,7 @@ classifiers = [
     "Topic :: Scientific/Engineering",
 ]
 dependencies = [
-    "python-dotenv>=1.0.0",
+    "python-dotenv>=1.0.0"
 ]
 
 [project.urls]
@@ -28,7 +28,7 @@ requires = ["hatchling"]
 
 [tool.pixi.project]
 channels = ["conda-forge"]
-platforms = ["linux-64"]
+platforms = ["linux-64", "osx-arm64"]
 
 [tool.pixi.pypi-dependencies]
 pixi-project = { path = ".", editable = true }
@@ -54,6 +54,7 @@ pyupgrade = ">=3.3.1"
 nox = ">=2023.4.22"
 
 [tool.pixi.tasks]
+start = "python src/main.py"
 test = "pytest tests/"
 lint = "ruff check ."
 format = "ruff format ."
@@ -74,7 +75,7 @@ quarto install tinytex;
 sdocs = "python -m pip install -e . && cd docs && python -m sphinx -b html . _build"
 
 [tool.pixi.dependencies]
-pytest = ">=8.3.4,<9"
+pytest = ">=8.3.5,<9"
 pytest-cov = ">=6.0.0,<7"
 pytest-mock = ">=3.14.0,<4"
 typer = ">=0.15.2,<0.16"
