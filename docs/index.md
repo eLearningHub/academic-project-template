@@ -51,4 +51,4 @@ pip install pixi-project
 
 ```bash
 pixi-project greet "Your Name"
-``` 
+```

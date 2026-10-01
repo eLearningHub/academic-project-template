@@ -56,11 +56,11 @@ $(document).ready(function() {
     // Initialize interpolation
     try {
         preloadInterpolationImages();
-        
+
         $('#interpolation-slider').on('input', function(event) {
             setInterpolationImage(this.value);
         });
-        
+
         setInterpolationImage(0);
         $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
     } catch (e) {
@@ -77,7 +77,7 @@ $(document).ready(function() {
         video.addEventListener('loadedmetadata', function() {
             console.log('Video loaded:', video.id);
         });
-        
+
         // Add error handling for videos
         video.addEventListener('error', function() {
             console.warn('Error loading video:', video.id);

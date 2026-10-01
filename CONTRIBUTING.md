@@ -226,4 +226,4 @@ Please follow these guidelines for commit messages:
 1. Update version in pyproject.toml
 2. Update CHANGELOG.md
 3. Create a new GitHub release
-4. The CI/CD pipeline will automatically publish to PyPI 
+4. The CI/CD pipeline will automatically publish to PyPI

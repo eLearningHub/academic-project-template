@@ -99,4 +99,4 @@ pixi add --pypi --feature dev package_name
 
 ## Important Note
 
-Do not edit pyproject.toml directly to add dependencies. Always use the `pixi add` command to ensure proper dependency resolution and environment management. Pixi will automatically update the pyproject.toml file with the appropriate configuration. 
+Do not edit pyproject.toml directly to add dependencies. Always use the `pixi add` command to ensure proper dependency resolution and environment management. Pixi will automatically update the pyproject.toml file with the appropriate configuration.

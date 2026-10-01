@@ -10,7 +10,7 @@ updates:
     commit-message:
       prefix: "deps"
       include: "scope"
-    
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -21,4 +21,4 @@ updates:
       - "github_actions"
     commit-message:
       prefix: "ci"
-      include: "scope" 
+      include: "scope"

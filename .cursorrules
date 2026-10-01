@@ -63,4 +63,4 @@ Guide me through the process of creating a new release.
 - `docs/`: Documentation
 - `.github/workflows/`: CI/CD configuration
 - `noxfile.py`: Nox configuration for automation
-- `.pre-commit-config.yaml`: Pre-commit hooks configuration 
+- `.pre-commit-config.yaml`: Pre-commit hooks configuration
