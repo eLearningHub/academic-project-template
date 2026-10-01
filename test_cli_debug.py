@@ -15,7 +15,7 @@ def main():
     print(f"Output: {result.output}")
 
     # Test the greet command
-    result = runner.invoke(app, ["greet", "World"])
+    result = runner.invoke(app, ["World"])
     print(f"Exit code: {result.exit_code}")
     print(f"Output: {result.output}")
 

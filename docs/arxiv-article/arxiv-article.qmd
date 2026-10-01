@@ -2,7 +2,7 @@
 title: "Demo arXiv template"
 format:
   arxiv-pdf:
-    keep-tex: true  
+    keep-tex: true
     linenumbers: false
     doublespacing: false
     runninghead: "A Preprint"
@@ -29,7 +29,7 @@ author:
         postal-code: 13210
 abstract: |
   This document is only a demo explaining how to use the template.
-keywords: 
+keywords:
   - template
   - demo
 bibliography: bibliography.bib
@@ -90,7 +90,7 @@ for col1, col2 in pairs:
 X = sm.add_constant(X)
 
 # Fit Poisson GLM using statsmodels
-model = sm.GLM(df['Days'], 
+model = sm.GLM(df['Days'],
                X,
                family=sm.families.Poisson())
 results = model.fit()
@@ -165,7 +165,7 @@ $$
 \frac{\partial \mathrm C}{ \partial \mathrm t } + \frac{1}{2}\sigma^{2} \mathrm S^{2}
 \frac{\partial^{2} \mathrm C}{\partial \mathrm C^2}
   + \mathrm r \mathrm S \frac{\partial \mathrm C}{\partial \mathrm S}\ =
-  \mathrm r \mathrm C 
+  \mathrm r \mathrm C
 $$ {#eq-black-scholes}
 
 ## Other Blocks

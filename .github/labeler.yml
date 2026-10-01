@@ -20,4 +20,4 @@ bug:
   - any: ['**/*fix*', '**/*bug*']
 
 enhancement:
-  - any: ['**/*feature*', '**/*enhancement*'] 
+  - any: ['**/*feature*', '**/*enhancement*']

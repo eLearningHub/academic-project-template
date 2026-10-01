@@ -31,4 +31,4 @@ from pixi_project.cli import greet
 
 # Call the greet function directly
 greet("World", count=3, verbose=True)
-``` 
+```

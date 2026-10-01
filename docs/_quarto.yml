@@ -1,6 +1,6 @@
 # Project options - can change the overall project title
 # and the name of the output directory here
-# Uncomment the post-render command to use the 
+# Uncomment the post-render command to use the
 # return-to-source post script - see Readme
 project:
   title: "Docs"

@@ -1,5 +1,11 @@
+"""A sample module, to show how code, tests and docs fit together."""
+
+
 class SampleClass:
+    """A sample class with one class method."""
+
     def __init__(self):
+        """Give the instance a name."""
         self.name = "sample class"
 
     @classmethod

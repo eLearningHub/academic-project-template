@@ -15,8 +15,21 @@ classifiers = [
     "Topic :: Scientific/Engineering",
 ]
 dependencies = [
-    "python-dotenv>=1.0.0"
+    "python-dotenv>=1.0.0",
+    "typer>=0.15.2",
+    "typeguard>=4.4.2",
 ]
+
+[project.optional-dependencies]
+docs = [
+    "sphinx>=8.2.3",
+    "sphinx-click>=6.0.0",
+    "furo>=2024.8.6",
+    "myst-parser>=4.0.1",
+]
+
+[project.scripts]
+pixi-project = "pixi_project.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/eLearningHub/pixi-template"
@@ -26,7 +39,7 @@ Repository = "https://github.com/eLearningHub/pixi-template.git"
 build-backend = "hatchling.build"
 requires = ["hatchling"]
 
-[tool.pixi.project]
+[tool.pixi.workspace]
 channels = ["conda-forge"]
 platforms = ["linux-64", "osx-arm64"]
 
@@ -58,6 +71,9 @@ start = "python src/main.py"
 test = "pytest tests/"
 lint = "ruff check ."
 format = "ruff format ."
+format-check = "ruff format --check ."
+mypy = "mypy src tests"
+test-cov = "pytest tests/ --cov=src --cov-report=xml --cov-report=term"
 docs = "cd docs; quarto render"
 mkdocs = "mkdocs serve"
 cli = """python -m src.pixi_project.cli"""
@@ -96,6 +112,7 @@ sphinx = ">=8.2.3,<9"
 sphinx-click = ">=6.0.0,<7"
 furo = ">=2024.8.6,<2025"
 myst-parser = ">=4.0.1,<5"
+mypy = "*"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -104,5 +121,14 @@ addopts = "-ra -q"
 markers = ["integration: marks tests as integration tests that require real credentials"]
 
 [tool.ruff]
-select = ["E", "F", "I", "N", "W", "B", "UP"]
 line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "B", "UP"]
+
+[tool.bandit]
+# pytest is built on assert (B101); bandit audits the package, not its tests.
+exclude_dirs = ["tests"]
+
+[tool.mypy]
+ignore_missing_imports = true
