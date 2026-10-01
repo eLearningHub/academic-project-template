@@ -2,6 +2,8 @@
 title: "Demo arXiv template"
 format:
   arxiv-pdf:
+    # LuaLaTeX finds Latin Modern in the TeX tree; XeLaTeX looks only at system fonts.
+    pdf-engine: lualatex
     keep-tex: true
     linenumbers: false
     doublespacing: false

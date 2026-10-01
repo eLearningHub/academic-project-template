@@ -1,0 +1,41 @@
+name: Pages
+
+# Renders the Quarto site in docs/ (the project page and the arXiv-style
+# article, HTML and PDF) and publishes it to the gh-pages branch, which
+# GitHub Pages serves at https://elearninghub.github.io/academic-project-template/.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: prefix-dev/setup-pixi@v0.8.1
+      with:
+        pixi-version: v0.72.2
+        cache: true
+
+    # The fontawesome, revealjs-clean and arxiv extensions, and TinyTeX for the PDF.
+    - name: Quarto extensions and TinyTeX
+      run: pixi run install-quarto-extensions
+
+    - name: Render
+      run: pixi run docs
+
+    - name: Publish to gh-pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/_output
+        force_orphan: true

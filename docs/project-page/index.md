@@ -9,24 +9,25 @@ css:
   - https://cdn.jsdelivr.net/npm/bulma-slider@2.0.0/dist/css/bulma-slider.min.css
   - https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
   - ./css/index.css
+# Served as separate files: embedding the 50 MB of video made one 61 MB page.
+self-contained: false
+embed-resources: false
 resources:
+  - css/
+  - js/
+  - images/
+  - videos/
   - interpolation/
 include-in-header:
   - text: |
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-PYVRSFMDRL');
-      </script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
-      <script>
-        console.log('bulmaCarousel is:', typeof bulmaCarousel); // Should log 'function' or 'object'
-      </script>
       <script src="./js/index.js"></script>
 ---
+
+::: {.notification .is-warning .is-light .has-text-centered}
+**Template demo.** This page shows what the [academic project template](https://github.com/eLearningHub/academic-project-template) produces, filled with the content of [Nerfies](https://nerfies.github.io/) (Park et al., ICCV 2021), whose project page the template adapts. Replace it with your own paper.
+:::
 
 ::: {.hero}
 ::: {.hero-body}
