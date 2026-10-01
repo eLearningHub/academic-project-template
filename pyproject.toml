@@ -126,5 +126,9 @@ line-length = 100
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "W", "B", "UP"]
 
+[tool.bandit]
+# pytest is built on assert (B101); bandit audits the package, not its tests.
+exclude_dirs = ["tests"]
+
 [tool.mypy]
 ignore_missing_imports = true
