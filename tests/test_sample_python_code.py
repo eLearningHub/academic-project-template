@@ -1,3 +1,5 @@
+"""Tests for the sample module."""
+
 import pytest
 
 from pixi_project.sample_python_code import SampleClass
@@ -5,10 +7,12 @@ from pixi_project.sample_python_code import SampleClass
 
 @pytest.fixture()
 def sample_class():
+    """A fresh SampleClass."""
     return SampleClass()
 
 
 def test_sum_test_success(sample_class: SampleClass) -> None:
+    """sample_sum adds two integers."""
     input_x = 2
     input_y = 3
     expected_output = 5

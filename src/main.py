@@ -1,4 +1,8 @@
+"""A minimal script entry point (pixi run start)."""
+
+
 def hello_world():
+    """Print a greeting."""
     print("Hello, world!")
 
 
