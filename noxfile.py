@@ -1,7 +1,5 @@
 """Nox sessions."""
 
-import tempfile
-
 import nox
 from nox.sessions import Session
 
@@ -19,24 +17,10 @@ def tests(session: Session) -> None:
 
 @nox.session(python=python_versions)
 def lint(session: Session) -> None:
-    """Lint using flake8."""
-    args = ["--max-line-length=100"]
-    session.install("flake8", "flake8-black", "flake8-isort")
-    session.run("flake8", *args, "src", "tests", "noxfile.py")
-
-
-@nox.session(python=python_versions)
-def black(session: Session) -> None:
-    """Run black code formatter."""
-    session.install("black")
-    session.run("black", "src", "tests", "noxfile.py")
-
-
-@nox.session(python=python_versions)
-def isort(session: Session) -> None:
-    """Run isort import sorter."""
-    session.install("isort")
-    session.run("isort", "src", "tests", "noxfile.py")
+    """Lint and check formatting with ruff."""
+    session.install("ruff")
+    session.run("ruff", "check", ".")
+    session.run("ruff", "format", "--check", ".")
 
 
 @nox.session(python=python_versions)
@@ -44,6 +28,7 @@ def mypy(session: Session) -> None:
     """Type-check using mypy."""
     session.install(".")
     session.install("mypy")
+    session.install("pytest", "nox")
     session.run("mypy", "src", "tests", "noxfile.py")
 
 
@@ -59,7 +44,7 @@ def xdoctest(session: Session) -> None:
 def docs(session: Session) -> None:
     """Build the documentation."""
     session.install(".")
-    session.install("sphinx", "sphinx-click", "furo", "myst-parser")
+    session.install(".[docs]")
     session.run("sphinx-build", "docs", "docs/_build")
 
 
@@ -72,17 +57,8 @@ def coverage(session: Session) -> None:
 
 
 @nox.session(python=python_versions)
-def safety(session: Session) -> None:
-    """Scan dependencies for insecure packages."""
-    with tempfile.NamedTemporaryFile() as requirements:
-        session.run(
-            "poetry",
-            "export",
-            "--dev",
-            "--format=requirements.txt",
-            "--without-hashes",
-            f"--output={requirements.name}",
-            external=True,
-        )
-        session.install("safety")
-        session.run("safety", "check", f"--file={requirements.name}", "--full-report")
+def audit(session: Session) -> None:
+    """Scan the installed dependencies for known vulnerabilities."""
+    session.install(".")
+    session.install("pip-audit")
+    session.run("pip-audit")

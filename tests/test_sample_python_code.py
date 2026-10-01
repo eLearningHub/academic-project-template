@@ -1,6 +1,6 @@
 import pytest
 
-from src.pixi_project.sample_python_code import SampleClass
+from pixi_project.sample_python_code import SampleClass
 
 
 @pytest.fixture()

@@ -10,27 +10,18 @@ repos:
     -   id: check-json
     -   id: debug-statements
 
--   repo: https://github.com/psf/black
-    rev: 23.12.1
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.10.0
     hooks:
-    -   id: black
-
--   repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-    -   id: isort
-
--   repo: https://github.com/pycqa/flake8
-    rev: 6.1.0
-    hooks:
-    -   id: flake8
-        additional_dependencies: [flake8-black, flake8-isort]
+    -   id: ruff
+        args: [--fix]
+    -   id: ruff-format
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.8.0
     hooks:
     -   id: mypy
-        additional_dependencies: [types-all]
+        additional_dependencies: [typer, typeguard, pytest]
 
 -   repo: https://github.com/asottile/pyupgrade
     rev: v3.15.0

@@ -1,10 +1,10 @@
 # Pixi Project
 
-[![Tests](https://github.com/eLearningHub/pixi-template/actions/workflows/tests.yml/badge.svg)](https://github.com/eLearningHub/pixi-template/actions/workflows/tests.yml)
-[![Lint](https://github.com/eLearningHub/pixi-template/actions/workflows/lint.yml/badge.svg)](https://github.com/eLearningHub/pixi-template/actions/workflows/lint.yml)
+[![Tests](https://github.com/eLearningHub/academic-project-template/actions/workflows/tests.yml/badge.svg)](https://github.com/eLearningHub/academic-project-template/actions/workflows/tests.yml)
+[![Lint](https://github.com/eLearningHub/academic-project-template/actions/workflows/lint.yml/badge.svg)](https://github.com/eLearningHub/academic-project-template/actions/workflows/lint.yml)
 [![Documentation Status](https://readthedocs.org/projects/pixi-project/badge/?version=latest)](https://pixi-project.readthedocs.io/en/latest/?badge=latest)
 [![PyPI](https://img.shields.io/pypi/v/pixi-project.svg)](https://pypi.org/project/pixi-project/)
-[![Codecov](https://codecov.io/gh/eLearningHub/pixi-template/branch/main/graph/badge.svg)](https://codecov.io/gh/eLearningHub/pixi-template)
+[![Codecov](https://codecov.io/gh/eLearningHub/academic-project-template/branch/main/graph/badge.svg)](https://codecov.io/gh/eLearningHub/academic-project-template)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A template for creating Python projects with modern development practices.
@@ -52,7 +52,7 @@ pip install pixi-project
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/eLearningHub/pixi-template.git
+git clone https://github.com/eLearningHub/academic-project-template.git
 cd pixi-template
 ```
 
