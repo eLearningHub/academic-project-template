@@ -5,6 +5,13 @@
 project:
   title: "Docs"
   output-dir: "_output"
+  # The project page and the article. The other .md files here are Sphinx
+  # sources (Read the Docs) and use MyST syntax Quarto can't render.
+  render:
+    - project-page/index.md
+    - arxiv-article/arxiv-article.qmd
+  resources:
+    - index.html
 
 # options for all formats - suggested not to change
 from: markdown+raw_attribute+raw_tex

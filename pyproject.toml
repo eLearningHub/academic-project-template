@@ -83,10 +83,10 @@ pip install pytest pytest-cov pytest-mock black isort flake8 mypy bandit safety 
 """
 install-quarto-extensions = '''
 cd docs;
-quarto add quarto-ext/fontawesome;
-quarto install extension grantmcdermott/quarto-revealjs-clean;
-quarto install extension mikemahoney218/quarto-arxiv;
-quarto install tinytex;
+quarto add --no-prompt quarto-ext/fontawesome;
+quarto add --no-prompt grantmcdermott/quarto-revealjs-clean;
+quarto add --no-prompt mikemahoney218/quarto-arxiv;
+quarto install --no-prompt tinytex;
 '''
 sdocs = "python -m pip install -e . && cd docs && python -m sphinx -b html . _build"
 
