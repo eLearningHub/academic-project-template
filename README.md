@@ -2,9 +2,14 @@
 
 [![Tests](https://github.com/eLearningHub/academic-project-template/actions/workflows/tests.yml/badge.svg)](https://github.com/eLearningHub/academic-project-template/actions/workflows/tests.yml)
 [![Lint](https://github.com/eLearningHub/academic-project-template/actions/workflows/lint.yml/badge.svg)](https://github.com/eLearningHub/academic-project-template/actions/workflows/lint.yml)
+<!-- Restore each badge once its service is set up:
+     Read the Docs: no project "pixi-project" exists yet; import the repository on readthedocs.org and use its slug.
+     PyPI: pixi-project has not been published.
+     Codecov: uploads fail without a CODECOV_TOKEN secret.
 [![Documentation Status](https://readthedocs.org/projects/pixi-project/badge/?version=latest)](https://pixi-project.readthedocs.io/en/latest/?badge=latest)
 [![PyPI](https://img.shields.io/pypi/v/pixi-project.svg)](https://pypi.org/project/pixi-project/)
 [![Codecov](https://codecov.io/gh/eLearningHub/academic-project-template/branch/main/graph/badge.svg)](https://codecov.io/gh/eLearningHub/academic-project-template)
+-->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A template for creating Python projects with modern development practices.
@@ -29,10 +34,10 @@ A template for creating Python projects with modern development practices.
 - Static type-checking with mypy
 - Runtime type-checking with Typeguard
 - Automated Python syntax upgrades with pyupgrade
-- Security audit with Bandit and Safety
+- Security audit with Bandit and pip-audit
 - Check documentation examples with xdoctest
 - Generate API documentation with autodoc and napoleon
-- Generate command-line reference with sphinx-click
+<!-- - Generate command-line reference with sphinx-click (sphinx-click cannot read Typer 0.27, which vendors its own Click) -->
 - Manage project labels with GitHub Labeler
 
 ## Requirements
@@ -42,18 +47,20 @@ A template for creating Python projects with modern development practices.
 
 ## Installation
 
+<!-- Not published to PyPI yet.
 ### From PyPI
 
 ```bash
 pip install pixi-project
 ```
+-->
 
 ### For Development
 
 1. Clone the repository:
 ```bash
 git clone https://github.com/eLearningHub/academic-project-template.git
-cd pixi-template
+cd academic-project-template
 ```
 
 2. Install Pixi if you haven't already:
@@ -81,6 +88,7 @@ pixi run pre-commit install
 pixi run install-quarto-extensions
 ```
 
+<!-- osx-arm64 is already in tool.pixi.workspace.platforms, so Apple Silicon needs no extra step.
 ### Note for Apple Silicon Users:
 If you're using a MacBook equipped with Apple M-series chips, you might need to include `osx-arm64` in your list of platforms:
 
@@ -88,12 +96,15 @@ If you're using a MacBook equipped with Apple M-series chips, you might need to 
 pixi project platform add osx-arm64
 pixi install
 ```
+-->
 
-> **Important**: When using Pixi, always add dependencies with `pixi add` commands instead of editing pyproject.toml directly. Use `pixi add [package]` for regular dependencies and `pixi add --pypi --feature dev [package]` for development dependencies. Pixi will automatically update the pyproject.toml file with the appropriate configuration. See [pixi_setup.md](pixi_setup.md) for more details.
+> **Important**: When using Pixi, always add dependencies with `pixi add` commands instead of editing pyproject.toml directly. Use `pixi add [package]` for dependencies (`pixi add --pypi [package]` for packages only on PyPI).<!-- `pixi add --pypi --feature dev [package]` adds to the dev feature, which no pixi environment uses yet. --> Pixi will automatically update the pyproject.toml file with the appropriate configuration. See [pixi_setup.md](pixi_setup.md) for more details.
 
 ## Documentation
 
+<!-- Not published yet; see the badge note at the top.
 The documentation is available at [pixi-project.readthedocs.io](https://pixi-project.readthedocs.io/).
+-->
 
 To build the documentation locally:
 
@@ -146,10 +157,7 @@ pip install nox
 # Run tests
 nox -s tests
 
-# Format code
-nox -s black isort
-
-# Lint code
+# Lint and check formatting (ruff)
 nox -s lint
 
 # Type check
@@ -161,7 +169,7 @@ nox -s docs
 
 ## Project Structure
 ```
-pixi-template/
+academic-project-template/
 ├── src/
 │   └── pixi_project/
 │       ├── __init__.py
@@ -190,7 +198,7 @@ pixi-template/
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License, as declared in `pyproject.toml`.<!-- No LICENSE file exists yet; add one and restore: see the [LICENSE](LICENSE) file for details. -->
 
 ## Contributing
 
